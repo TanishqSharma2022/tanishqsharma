@@ -1,0 +1,32 @@
+.link{
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    .indicator{
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        left: -30px;
+    }
+}
+.rolling-text{
+    display: inline-block;
+    line-height: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.rolling-text:hover .letter,
+.rolling-text.play .letter
+{
+ transform: tranlateY(-100%);   
+
+}
+
+.rolling-text .letter{
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1)
+}
