@@ -1,11 +1,12 @@
 'use client'
 import styles from './style.module.scss'
-import { useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import Nav from './nav';
 import { AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import Magnetic from '../magnetic';
 
-export default function Home() {
+const Home = forwardRef(function index(props, ref) {
 
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
@@ -19,9 +20,13 @@ export default function Home() {
     <div className={styles.main}>
 
       <div className={styles.header}>
-        <div onClick={() => {setIsActive(!isActive)}} className={styles.button}>
-          <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
-        </div>
+          <Magnetic>
+            <div onClick={() => {setIsActive(!isActive)}} className={styles.button}>
+              <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}>
+              <div ref={ref} className={styles.bounds}></div>
+              </div>
+            </div>
+          </Magnetic>
       </div>
 
     </div>
@@ -31,3 +36,7 @@ export default function Home() {
     </>
   )
 }
+)
+
+
+export default Home;
