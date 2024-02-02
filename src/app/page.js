@@ -145,7 +145,7 @@ const animation = () =>{
       <div className='w-[100%] md:w-[80%]  h-[80%] border  flex md:flex-row flex-col items-center '>
       <div className={`   font-black mb-48 text-4xl md:text-8xl  z-10 `}>
           <div className={`py-0 overflow-hidden ${styles.mytext}    `}>
-            <div className='mytext py-0 '>HI THERE, I'M</div>
+            <div className='mytext py-0 '>HI THERE, I&apos;M</div>
             <div className=' mytext leading-24 '>
               <h1 className={` ${styles.clipper}`}>TANISHQ SHARMA</h1></div>
           </div>
