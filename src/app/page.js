@@ -12,7 +12,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 
-const page = () => {
+const Page = () => {
   const stickyElement = useRef(null);
   const container = useRef();
   const firstText = useRef(null);
@@ -174,4 +174,4 @@ const animation = () =>{
   )
 }
 
-export default page
+export default Page
