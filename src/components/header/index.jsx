@@ -6,7 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import Magnetic from '../magnetic';
 
-const Home = forwardRef(function index(props, ref) {
+const Home = forwardRef(function Index(props, ref) {
 
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
