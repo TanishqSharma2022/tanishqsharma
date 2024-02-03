@@ -73,17 +73,45 @@ export default function Index({stickyElement}) {
     animate(cursor.current, { scaleX: 1, scaleY: 1 }, {duration: 0.1}, { type: "spring" })
   }
 
-  useEffect( () => {
-    stickyElement.current.addEventListener("mouseenter", manageMouseOver)
-    stickyElement.current.addEventListener("mouseleave", manageMouseLeave)
-    window.addEventListener("mousemove", manageMouseMove);
-    return () => {
-      stickyElement.current.removeEventListener("mouseenter", manageMouseOver)
-      stickyElement.current.removeEventListener("mouseleave", manageMouseLeave)
-      window.removeEventListener("mousemove", manageMouseMove)
-    }
-  }, [isHovered])
+  // useEffect( () => {
+  //   if(stickyElement.current){ 
+  //   stickyElement.current.addEventListener("mouseenter", manageMouseOver)
+  //   stickyElement.current.addEventListener("mouseleave", manageMouseLeave)
+  //   window.addEventListener("mousemove", manageMouseMove);
+  // }
+  //   return () => {
 
+
+  //     stickyElement.current.removeEventListener("mouseenter", manageMouseOver)
+  //     stickyElement.current.removeEventListener("mouseleave", manageMouseLeave)
+  //     window.removeEventListener("mousemove", manageMouseMove)
+  //   }
+  // }, [isHovered])
+  useEffect(() => {
+    const handleMouseOver = () => setIsHovered(true);
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+      animate(cursor.current, { scaleX: 1, scaleY: 1 }, { duration: 0.1 }, { type: "spring" });
+    };
+    const handleMouseMove = (e) => manageMouseMove(e);
+  
+    const element = stickyElement.current;
+  
+    if (element) {
+      element.addEventListener("mouseenter", handleMouseOver);
+      element.addEventListener("mouseleave", handleMouseLeave);
+      window.addEventListener("mousemove", handleMouseMove);
+    }
+  
+    return () => {
+      if (element) {
+        element.removeEventListener("mouseenter", handleMouseOver);
+        element.removeEventListener("mouseleave", handleMouseLeave);
+      }
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [isHovered]);
+  
   const template = ({rotate, scaleX, scaleY}) => {
     return `rotate(${rotate}) scaleX(${scaleX}) scaleY(${scaleY})` 
   }

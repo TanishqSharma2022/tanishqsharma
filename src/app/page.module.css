@@ -61,18 +61,19 @@
     
 }
 
-
+/* 
 .circle1{
-  animation: moving 10s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: moving 1000s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 @keyframes moving{
   0%{
     transform: translateX(0px);
   }
   50%{
-    transform: translateX(800px);
+    transform: translateX(800px) ;
+
   }
   100%{
     transform: translateX(0px);
   }
-}
+} */
