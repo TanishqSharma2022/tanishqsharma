@@ -20,6 +20,9 @@ const transition = (OgComponent) => {
             />
     </>
     )
+    TransitionComponent.displayName = `Transition(${OgComponent.displayName || OgComponent.name || 'Component'})`;
+
+    return TransitionComponent;
 };
 
 export default transition
